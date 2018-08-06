@@ -211,3 +211,9 @@
    )
 ;; => "HI"
 
+
+;; Continuation Passing Style
+;; Time: ~ 1: Hr
+;; Direct style Factorial
+(define (fact n)
+  (if (zero? n) 1 (* n (fact (- n 1)))))
