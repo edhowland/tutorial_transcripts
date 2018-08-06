@@ -217,3 +217,19 @@
 ;; Direct style Factorial
 (define (fact n)
   (if (zero? n) 1 (* n (fact (- n 1)))))
+;; Time: ??
+;; Factorial in Accumulator Passing Style
+(define (fact num)
+  (define (fact-aps n acc)
+    (if (zero? n) acc (fact-aps (- n 1) (* acc n)))
+  )
+  (fact-aps num 1)
+)
+
+
+
+;; (fact 5)
+;; => 120
+
+;; Time: ??
+;; Factorial Continuation Passing Style
