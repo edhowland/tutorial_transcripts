@@ -198,3 +198,15 @@
 ;; time 42:17
 ;; once again pointing to
 (+ (* 3 4) 5)
+
+;;; Additions made by Ed Howland ed.howland@gmail.com
+;; time: ~55:00
+;; From somewhere in the Chez Programming Manual. URL missing.
+;;
+;; Why does this work? Can you trace its path? 
+
+ (let ((x (call/cc (lambda (k) k))))
+   (x (lambda (v) "HI"))
+   )
+;; => "HI"
+
