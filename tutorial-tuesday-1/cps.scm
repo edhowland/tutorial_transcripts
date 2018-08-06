@@ -202,6 +202,7 @@
 ;;; Additions made by Ed Howland ed.howland@gmail.com
 ;; time: ~55:00
 ;; From somewhere in the Chez Programming Manual. URL missing.
+;; Maybe: https://www.scheme.com/csug8/control.html#./control:h3
 ;;
 ;; Why does this work? Can you trace its path? 
 
