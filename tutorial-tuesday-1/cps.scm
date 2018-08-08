@@ -200,25 +200,31 @@
 (+ (* 3 4) 5)
 
 ;;; Additions made by Ed Howland ed.howland@gmail.com
-;; time: ~55:00
-;; From somewhere in the Chez Programming Manual. URL missing.
-;; Maybe: https://www.scheme.com/csug8/control.html#./control:h3
-;;
-;; Why does this work? Can you trace its path? 
+;; time 51:00
+;; https://www.scheme.com/tspl4/further.html#g63
+;; The following is from Section 3.3 Continuations
 
- (let ((x (call/cc (lambda (k) k))))
-   (x (lambda (v) "HI"))
-   )
+
+;; Why does this work? Can you trace its path? 
+;; time 52:42
+
+(let ([x (call/cc (lambda (k) k))])
+  (x (lambda (ignore) "hi")))
+;; time 1:02:00
 ;; => "HI"
 
 
 ;; Continuation Passing Style
-;; Time: ~ 1: Hr
-;; Direct style Factorial
+;; time 1:11:40
 
+;; time 1:17:00
+;; Direct style Factorial
 (define (fact n) (if (zero? n) 1 (* n (fact (- n 1)))))
 
-;; Time: ~ 1:15:00
+
+;; time 1:18:00
+;; ... trace output showing triangular stack build-up
+;; time 1:21:00
 ;; Factorial in Accumulator Passing Style
 (define (fact num)
   (define (fact-aps n acc)
@@ -231,8 +237,10 @@
 
 ;; (fact 5)
 ;; => 120
+;; time 1:22:00
+;; trace ooutput showing straight line, and no stack buildup
 
-;; Time: ~ 1:26:00
+;; time 1:26:00
 ;; Factorial Continuation Passing Style
 
 ;; factorial using CPS
