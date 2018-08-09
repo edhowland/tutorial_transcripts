@@ -3,7 +3,7 @@
 ## Abstract
 
 This is a repository of various transcripts of video tutorials.
-The first one was hosted by Dr. William E. Byrd [webyrd.net](webyrd.net)
+The first one was hosted by Dr. William E. Byrd [webyrd.net](http://webyrd.net))
 
 ### Tutorial Tuesday #1: Intro to continuations, call/cc, and CPS - YouTube window
 
