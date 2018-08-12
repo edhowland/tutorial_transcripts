@@ -245,17 +245,18 @@
 
 ;; factorial using CPS
 ;; factorial using CPS
+;; On the video, the lambda is shown as the greek letter Lambda
 (define (fact n)
-  (define (fact-cps num k)    
+  (define (fact-cps n k)    
     (cond
-      [(zero? num) (k 1)]
-      [else (fact-cps (sub1 num) (lambda (v)
-        (k (* num v))))])
+      [(zero? n) (k 1)]
+      [else
+        (fact-cps (sub1 n) (lambda (v)
+          (k (* n v))))])
   )
 
   (fact-cps n (lambda (v) v))
 )
-
 
 
 
