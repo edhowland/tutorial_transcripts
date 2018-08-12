@@ -1,1 +1,8 @@
-(define (fact n) (if (zero? n) 1 (* n (fact (- n 1)))))
+;; fact in direct style
+(define (fact n)
+  (cond
+    [(zero? n) 1]
+    [else (* n (fact (sub1 n)))])
+)
+
+
