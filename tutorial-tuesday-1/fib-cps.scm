@@ -1,7 +1,4 @@
 ;; CPS ver of fib
-;; --- for testing
-(define (ad x y) (+ x y))
-
 
 (define (fib-cps n k)
   (cond
@@ -12,5 +9,4 @@
   )
 )
 
-
-(define (fib m) (fib-cps m ad))
+(define (fib m) (fib-cps m (lambda (x y) (+ x y))))
