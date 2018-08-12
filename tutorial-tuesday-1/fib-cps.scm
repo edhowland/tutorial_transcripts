@@ -1,6 +1,5 @@
 ;; CPS ver of fib
 ;; --- for testing
-(load "fib-dir.scm")
 (define (ad x y) (+ x y))
 
 
@@ -12,3 +11,6 @@
                                 (k y (+ x y))))]
   )
 )
+
+
+(define (fib m) (fib-cps m ad))
