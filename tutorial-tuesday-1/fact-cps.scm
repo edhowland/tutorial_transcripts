@@ -1,9 +1,14 @@
 ;; factorial using CPS
 (define (fact n)
-(define (fact-cps num k)
-  (if (zero? num) (k 1) 
-    (* num (call/cc (lambda (cc) (fact-cps (- num 1) cc))))  )
+  (define (fact-cps num k)    
+    (cond
+      [(zero? num) (k 1)]
+      [else (fact-cps (sub1 num) (lambda (v)
+        (k (* num v))))])
+  )
+
+  (fact-cps n (lambda (v) v))
 )
-  (call/cc (lambda (v) (fact-cps n v)))
-)
+
+
 
