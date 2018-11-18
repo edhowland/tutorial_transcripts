@@ -1,11 +1,13 @@
-(define (even n)
-  (if (zero? n) #t
-  (odd (sub1 n)))
-)
-
-(define (odd n)
+;;; e-o.scm - even?/odd? mutually recursive
+(define even? (lambda (n)
   (cond
-  [(zero? n) #f]
-  [(eq? 1 n) #t]
-  [else (even (sub1 n))])
-)
+    [(zero? n) #t]
+    [else (odd? (sub1 n))]
+)))
+(define odd? (lambda (n)
+  (cond
+    [(zero? n) #f]
+    [else (even? (sub1 n))]
+)))
+
+
