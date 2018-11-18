@@ -51,6 +51,63 @@
 ;;; > (multi-rember 'y l)
 ;;; (z x)
 
+;;; Time: 00:29:00
+;;; Mutual recursion with even?/odd?
+
+;;; Time: 00:29:31
+
+> (define even? (lambda (n)
+                  (cond
+                    [(zero? n) #t]
+                    [else #f]
+                    )))
+> (define odd? (lambda (n)
+                 (cond
+                   [(zero? n) #f]
+                   [else #t]
+                   )))
+
+;;; Time ??:??:??
+(define even? (lambda (n)
+  (cond
+    [(zero? n) #t]
+    [else (odd? (sub1 n))]
+  )
+))
+(define odd? (lambda (n)
+  (cond
+    [(zero? n) #f]
+    [else (even? (sub1 n))]  )
+))
+
+
+
+
+
+;;; Time 00:37:00
+;;; The let construct
+(let ((x (+ 3 2)))
+  (* x x)
+)
+
+;;; Time ??:??:??
+;;; left-left-lambda equiv to let
+((lambda (x) (* x x)) (+ 3 2))
+
+;;; Time 00:40:00
+;;; Using letrec for factorial
+
+(letrec (
+  [fact (lambda (n)
+    (cond
+      [(zero? n) 1]
+      [else (* n (fact (sub1 n)))]
+    ))])
+(fact 5)
+)
+
+;;; Time: ??:??:??
+;;; Redo our even?/odd? example with letrec instead of top-level functions
 
 
 
