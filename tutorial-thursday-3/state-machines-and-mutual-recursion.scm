@@ -150,6 +150,14 @@
 ;;; > ((cadr e-o) 9)
 ;;; #t
 
+;;; Time: ??:??:??
+;;; Finite State Machines
+;;; A Deterministic Finite Autamata or DFA can be defined by a 5-Tuple
+;;;https://en.wikipedia.org/wiki/Deterministic_finite_automaton
+;;; This diagram represents a DFA which accepts any multiple of 3 1-bits
+;;; From a string of 0s and 1s alphabet.
+
+
 
 
 
