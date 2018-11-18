@@ -108,6 +108,53 @@
 
 ;;; Time: ??:??:??
 ;;; Redo our even?/odd? example with letrec instead of top-level functions
+(letrec (
+  [even? (lambda (n)
+  (cond
+    [(zero? n) #t]
+    [else (odd? (sub1 n))]
+))]
+  [odd? (lambda (n)
+  (cond
+    [(zero? n) #f]
+    [else (even? (sub1 n))]
+))]
+  )
+  ;;; Now call it
+(even? 101)
+)
+;;; => #t
+;;; Time: ??:??:??
+;;; Now let's return both functions in a list
+(define e-o 
+(letrec (
+  [even? (lambda (n)
+  (cond
+    [(zero? n) #t]
+    [else (odd? (sub1 n))]
+))]
+  [odd? (lambda (n)
+  (cond
+    [(zero? n) #f]
+    [else (even? (sub1 n))]
+))]
+  )
+  ;;; Now call it
+  (list even? odd?)
+)
+)
+;;; Time: ??:??:??
+
+;;; > ((car e-o) 9)
+;;; #f
+;;; > ((cadr e-o) 9)
+;;; #t
+
+
+
+
+
+
 
 
 
