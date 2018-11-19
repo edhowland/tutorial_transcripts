@@ -195,7 +195,46 @@
   (fsm-aux str 'S0)
 ))
 
+;;; Note: This version, not covered in the talk, implements an outer, driver and
+;;; the delta function. The recursion occurs in the fsm-drv function.
+;;; fsm-drive.scm - moves recursion from helper fsm-aux to driver: fsm
 
 
+(define fsm-drv (lambda (lst S)
+
+  (let ((R (fsm-aux lst S)))
+      (cond
+        [(eq? R 'ACCEPT) 'ACCEPT]
+        [(eq? R 'REJECT) 'REJECT]
+        [else (fsm-drv (cdr lst) R)]
+      ))
+))
+;;; fsm.scm - Encode delta function of DFA in helper: fsm-aux
+
+  (define fsm-aux (lambda (str st)
+    (cond
+      [(and (null? str) (eq? st 'S0)) 'ACCEPT]
+      [(null? str) 'REJECT]
+      ;;; Row S0
+      [(and (eq? st 'S0) (zero? (car str))) 'S0]
+      [(and (eq? st 'S0) (eq? (car str) 1)) 'S1]
+      ;;; Row S1
+      [(and (eq? st 'S1) (eq? (car str) 0)) 'S2]
+      [(and (eq? st 'S1) (eq? (car str) 1)) 'S0]
+      ;;; Row S2
+      [(and (eq? st 'S2) (eq? (car str) 0))  'S1]
+      [(and (eq? st 'S2) (eq? (car str) 1)) 'S2]
+      ;;; Reject all other conditions
+    [else 'REJECT]
+  )
+  ))
 
 
+;;; fsm-cond.scm - Conditional version of DFA
+
+
+(define  fsm (lambda (lst)
+  (let* ((Q0 'S0) (Q Q0))
+  (fsm-drv lst Q)
+  )
+))
