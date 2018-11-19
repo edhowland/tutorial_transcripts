@@ -1,6 +1,9 @@
 (define fsm (lambda (str)
   (define fsm-aux (lambda (str st)
-  0
+    (cond
+      [(and (null? str) (eq? st 'S0)) 'ACCEPT]
+    [else 'REJECT]
+  )
   ))
   (fsm-aux str 'S0)
 ))
