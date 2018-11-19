@@ -170,7 +170,7 @@
 ;;; S2 | S1 | S2 |
 ;;; Amozon link: https://www.amazon.com/Introduction-Theory-Computation-Michael-Sipser/dp/113318779X/ref=mp_s_a_1_1?ie=UTF8&qid=1542647886&sr=8-1&pi=AC_SX236_SY340_QL65&keywords=introduction+to+theory+of+computation&dpPl=1&dpID=41HYcr8ZodL&ref=plSrch
 ;;; Page 35 of Sipser: A DFA is represented as a a 5-Tuple
-;;;
+;;; Time: 00:59:00
 
 
 
