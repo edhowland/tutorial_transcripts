@@ -156,13 +156,21 @@
 ;;;https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 ;;; This diagram represents a DFA which accepts any multiple of 3 1-bits
 ;;; From a string of 0s and 1s alphabet.
-
-
-
-
-
-
-
+;;; Q: [S0 S1 S2]:  List of states : 
+;;; Accept state: S0   ;;; When empty string or end of input
+;;;  Sigma:Alphabet: [0 1]  ;;; Any number of 0s or 1s - encoded in a llist
+;;; Delta fn: Transition function:
+;;; Q X Sigma -> Q
+;;; F : [S0] : Set of accept states
+;;; Q[0] Start state: S0
+;;; State transition table
+;;; State | 0 | 1 |
+;;; S0 | S0 | S1 |
+;;; S1 | S2 | S0 |
+;;; S2 | S1 | S2 |
+;;; Amozon link: https://www.amazon.com/Introduction-Theory-Computation-Michael-Sipser/dp/113318779X/ref=mp_s_a_1_1?ie=UTF8&qid=1542647886&sr=8-1&pi=AC_SX236_SY340_QL65&keywords=introduction+to+theory+of+computation&dpPl=1&dpID=41HYcr8ZodL&ref=plSrch
+;;; Page 35 of Sipser: A DFA is represented as a a 5-Tuple
+;;;
 
 
 
