@@ -171,6 +171,31 @@
 ;;; Amozon link: https://www.amazon.com/Introduction-Theory-Computation-Michael-Sipser/dp/113318779X/ref=mp_s_a_1_1?ie=UTF8&qid=1542647886&sr=8-1&pi=AC_SX236_SY340_QL65&keywords=introduction+to+theory+of+computation&dpPl=1&dpID=41HYcr8ZodL&ref=plSrch
 ;;; Page 35 of Sipser: A DFA is represented as a a 5-Tuple
 ;;; Time: 00:59:00
+;;; Note: The nex function: fsm probably would be the result completing
+;;; The cond version of the delta function. Before moving on to the pmatch version.
+;;; fsm.scm - Encode delta function of DFA in helper: fsm-aux
+(define fsm (lambda (str)
+  (define fsm-aux (lambda (str st)
+    (cond
+      [(and (null? str) (eq? st 'S0)) 'ACCEPT]
+      [(null? str) 'REJECT]
+      ;;; Row S0
+      [(and (eq? st 'S0) (zero? (car str))) (fsm-aux (cdr str) 'S0)]
+      [(and (eq? st 'S0) (eq? (car str) 1)) (fsm-aux (cdr str) 'S1)]
+      ;;; Row S1
+      [(and (eq? st 'S1) (eq? (car str) 0)) (fsm-aux (cdr str) 'S2)]
+      [(and (eq? st 'S1) (eq? (car str) 1)) (fsm-aux (cdr str) 'S0)]
+      ;;; Row S2
+      [(and (eq? st 'S2) (eq? (car str) 0)) (fsm-aux (cdr str) 'S1)]
+      [(and (eq? st 'S2) (eq? (car str) 1)) (fsm-aux (cdr str) 'S2)]
+
+    [else 'REJECT]
+  )
+  ))
+  (fsm-aux str 'S0)
+))
+
+
 
 
 
