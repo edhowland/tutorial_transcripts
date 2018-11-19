@@ -9,7 +9,7 @@
       [(and (eq? st 'S0) (eq? (car str) 1)) (fsm-aux (cdr str) 'S1)]
       ;;; Row S1
       [(and (eq? st 'S1) (eq? (car str) 0)) (fsm-aux (cdr str) 'S2)]
-      [(and (eq? st 'S1) (eq? (car str) 1)) (fsm-aux (cdr str) 'S2)]
+      [(and (eq? st 'S1) (eq? (car str) 1)) (fsm-aux (cdr str) 'S0)]
       ;;; Row S2
       [(and (eq? st 'S2) (eq? (car str) 0)) (fsm-aux (cdr str) 'S1)]
       [(and (eq? st 'S2) (eq? (car str) 1)) (fsm-aux (cdr str) 'S2)]
