@@ -3,7 +3,7 @@
 
 (define fsm-drv (lambda (lst S)
 
-  (let* ((Q0 'S0) (Q Q0) (R (fsm-aux lst S)))
+  (let ((R (fsm-aux lst S)))
       (cond
         [(eq? R 'ACCEPT) 'ACCEPT]
         [(eq? R 'REJECT) 'REJECT]
