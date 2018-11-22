@@ -1,6 +1,6 @@
 ;;; fsm-pmatch-check.scm - Use chekr* to check for valid state transitions
 (load "chekr-star.scm")
-(load "fsm2.scm")
+(load "fsm-pmatch.scm")
 ;;; helper method
 (define fsm-dbg (lambda (ls)
   (display "got:")   (write ls)
