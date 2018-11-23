@@ -1,8 +1,8 @@
 ;;; fsm-bit.scm
 (define fsm-bit (lambda (str)
-;;  (define fsm-aux (lambda (state bit)
-
-;;  ))
+  (define fsm-aux (lambda (state bit)
+0
+ ))
 
   (letrec (
   [S0 (lambda (bit) bit)]
