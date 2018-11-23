@@ -14,11 +14,15 @@
 )]
   [S1 (lambda (bit) 
       (case bit
+        [0 S2]
+        [1 S0]
         [else 'reject]
   )
 )]
   [S2 (lambda (bit) 
       (case bit
+        [0 S1]
+        [1 S2]
         [else 'reject]
       )
 )]
