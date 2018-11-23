@@ -12,8 +12,16 @@
       [1 S1]
   [else 'accept])
 )]
-  [S1 (lambda (bit) bit)]
-  [S2 (lambda (bit) bit)]
+  [S1 (lambda (bit) 
+      (case bit
+        [else 'reject]
+  )
+)]
+  [S2 (lambda (bit) 
+      (case bit
+        [else 'reject]
+      )
+)]
 
 
 
