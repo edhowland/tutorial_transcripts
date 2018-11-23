@@ -316,3 +316,57 @@
 ;;; => reject
 ;;; (fsm-ho '(1 0 0 1))
 ;;; => accept
+
+
+;;; Time: 01:??:??
+;;; State bit version. Each state function takes a bit and returns new state function.
+;;; The internal driver function churns its way thru the bit list and calls
+;; each state in  in turn. When the end of the list is reached reached, it calls
+;;; the current state with special end of list bit: 'end
+;;; Each state function does a case on the bit and either returns the next state
+;;; or if the 'end bit, whether it is in the 'accept or 'reject state
+
+;;; fsm-bit.scm
+(define fsm-bit (lambda (str)
+  (define fsm-aux (lambda (state str)
+    (if (null? str) (state 'end)
+  (fsm-aux (state (car str)) (cdr str)))
+ ))
+
+  (fsm-aux (letrec (
+  [S0 (lambda (bit) 
+      (case bit
+      [0 S0]
+      [1 S1]
+  [else 'accept])
+)]
+  [S1 (lambda (bit) 
+      (case bit
+        [0 S2]
+        [1 S0]
+        [else 'reject]
+  )
+)]
+  [S2 (lambda (bit) 
+      (case bit
+        [0 S1]
+        [1 S2]
+        [else 'reject]
+      )
+)]
+
+
+
+  )
+  S0
+  )  str)
+))
+
+
+
+;;; Time: 01:??:??
+;;; End of transcription
+;;; Further video works on miniKanren version from here.
+
+
+
