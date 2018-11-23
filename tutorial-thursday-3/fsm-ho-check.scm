@@ -1,6 +1,6 @@
 ;;; fsm-ho-check.scm - Use chekr* to check for valid state transitions
 (load "chekr-star.scm")
-(load "fsm-ho2.scm")
+(load "fsm-ho.scm")
 ;;; helper method
 (define fsm-dbg (lambda (ls)
   (display "got:")   (write ls)
