@@ -1,7 +1,8 @@
 ;;; fsm-bit.scm
 (define fsm-bit (lambda (str)
-  (define fsm-aux (lambda (state bit)
-0
+  (define fsm-aux (lambda (state str)
+    (if (null? str) #t
+  (fsm-aux (state (car str)) (cdr str)))
  ))
 
   (fsm-aux (letrec (
@@ -13,5 +14,5 @@
 
   )
   S0
-  ) (car str))
+  )  str)
 ))
