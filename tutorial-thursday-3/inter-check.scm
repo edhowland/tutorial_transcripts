@@ -13,5 +13,5 @@
 (chekr interleave '(foo bar) '(1) '(foo 1 bar))
 (chekr interleave '(foo) '(1 2 3) '(foo 1 2 3))
 
-(display "ok")
-(exit)
+(println "ok")
+

@@ -3,7 +3,7 @@
 (load "fsm-ho.scm")
 ;;; helper method
 (define fsm-dbg (lambda (ls)
-  (display "got:")   (write ls)
+  (println "got:")   (write ls)
   (fsm ls)
 ))
 
@@ -19,5 +19,5 @@
   [((1 0 1 1 1 1 1 1)) reject]
 ))
 
-(display "ok")
-(exit)
+(println "ok")
+

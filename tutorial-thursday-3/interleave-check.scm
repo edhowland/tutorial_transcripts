@@ -15,5 +15,5 @@
   ))
 
 
-(display "ok")
-(exit)
+(println "ok")
+

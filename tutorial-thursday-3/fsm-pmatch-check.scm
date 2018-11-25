@@ -3,7 +3,7 @@
 (load "fsm-pmatch.scm")
 ;;; helper method
 (define fsm-dbg (lambda (ls)
-  (display "got:")   (write ls)
+  (println "got:")   (write ls)
   (fsm ls)
 ))
 
@@ -20,4 +20,4 @@
 ))
 
 (display "ok")
-(exit)
+
