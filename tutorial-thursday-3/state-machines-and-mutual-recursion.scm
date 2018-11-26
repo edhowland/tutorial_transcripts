@@ -156,6 +156,9 @@
 ;;;https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 ;;; This diagram represents a DFA which accepts  binary representations of
 ;;; decimal values where value modulo 3 is 0.
+;;; E.g. 0, 3, 6, 9, 12 and 15: 0, 11, 110, 1001, 1100 and 1111.
+;;; Leading 0's are ignored, since they remain in state S0 which is the accecpt
+;;; state which is also the starting state.
 ;;; From a string of 0s and 1s alphabet.
 ;;; Q: [S0 S1 S2]:  List of states : 
 ;;; Accept state: S0   ;;; When empty string or end of input
