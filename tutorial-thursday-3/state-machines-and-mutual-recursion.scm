@@ -56,7 +56,7 @@
 
 ;;; Time: 00:29:31
 
-> (define even? (lambda (n)
+ (define even? (lambda (n)
                   (cond
                     [(zero? n) #t]
                     [else #f]
@@ -67,7 +67,7 @@
                    [else #t]
                    )))
 
-;;; Time ??:??:??
+;;; Time 00:34:17
 (define even? (lambda (n)
   (cond
     [(zero? n) #t]
@@ -90,7 +90,7 @@
   (* x x)
 )
 
-;;; Time ??:??:??
+;;; Time 00:37:13
 ;;; left-left-lambda equiv to let
 ((lambda (x) (* x x)) (+ 3 2))
 
@@ -106,7 +106,7 @@
 (fact 5)
 )
 
-;;; Time: ??:??:??
+;;; Time: 00:41:00
 ;;; Redo our even?/odd? example with letrec instead of top-level functions
 (letrec (
   [even? (lambda (n)
@@ -124,7 +124,7 @@
 (even? 101)
 )
 ;;; => #t
-;;; Time: ??:??:??
+;;; Time: 00:42:07
 ;;; Now let's return both functions in a list
 (define e-o 
 (letrec (
@@ -143,18 +143,19 @@
   (list even? odd?)
 )
 )
-;;; Time: ??:??:??
+;;; Time: 00:42:30
 
-;;; > ((car e-o) 9)
+;;; > ((car e-o) 101)
 ;;; #f
-;;; > ((cadr e-o) 9)
+;;; > ((cadr e-o) 101)
 ;;; #t
 
-;;; Time: ??:??:??
+;;; Time: 00:43:59
 ;;; Finite State Machines
 ;;; A Deterministic Finite Autamata or DFA can be defined by a 5-Tuple
 ;;;https://en.wikipedia.org/wiki/Deterministic_finite_automaton
-;;; This diagram represents a DFA which accepts any multiple of 3 1-bits
+;;; This diagram represents a DFA which accepts  binary representations of
+;;; decimal values where value modulo 3 is 0.
 ;;; From a string of 0s and 1s alphabet.
 ;;; Q: [S0 S1 S2]:  List of states : 
 ;;; Accept state: S0   ;;; When empty string or end of input
