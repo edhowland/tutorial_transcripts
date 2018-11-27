@@ -26,4 +26,7 @@ Chez Scheme for Dr. Byrd's original content.
   - fact-aps.scm : Accumulator Passing Style Factorial
   - fact-cps.scm  : Continuation passing style of factorial
 
+* tutorial-thursday-3
+- state-machines-and-mutual-recursion.scm
+
 
