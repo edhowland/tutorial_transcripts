@@ -244,7 +244,7 @@
 ))
 
 
-;;; Time: ??:??:??
+;;; Time: 01:08:00
 ;;;  Pmatch version: Use pattern matcher to perform check for valid  bit strings
 (load "pmatch.scm")
 
@@ -322,7 +322,7 @@
 ;;; => accept
 
 
-;;; Time: 01:??:??
+;;; Time: 01:29:07
 ;;; State bit version. Each state function takes a bit and returns new state function.
 ;;; The internal driver function churns its way thru the bit list and calls
 ;; each state in  in turn. When the end of the list is reached reached, it calls
@@ -368,9 +368,6 @@
 
 
 
-;;; Time: 01:??:??
+;;; Time: 01:33:00
 ;;; End of transcription
 ;;; Further video works on miniKanren version from here.
-
-
-
