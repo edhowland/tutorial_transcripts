@@ -178,26 +178,28 @@
 ;;; Note: The nex function: fsm probably would be the result completing
 ;;; The cond version of the delta function. Before moving on to the pmatch version.
 ;;; fsm.scm - Encode delta function of DFA in helper: fsm-aux
-(define fsm (lambda (str)
-  (define fsm-aux (lambda (str st)
-    (cond
-      [(and (null? str) (eq? st 'S0)) 'ACCEPT]
-      [(null? str) 'REJECT]
-      ;;; Row S0
-      [(and (eq? st 'S0) (zero? (car str))) (fsm-aux (cdr str) 'S0)]
-      [(and (eq? st 'S0) (eq? (car str) 1)) (fsm-aux (cdr str) 'S1)]
-      ;;; Row S1
-      [(and (eq? st 'S1) (eq? (car str) 0)) (fsm-aux (cdr str) 'S2)]
-      [(and (eq? st 'S1) (eq? (car str) 1)) (fsm-aux (cdr str) 'S0)]
-      ;;; Row S2
-      [(and (eq? st 'S2) (eq? (car str) 0)) (fsm-aux (cdr str) 'S1)]
-      [(and (eq? st 'S2) (eq? (car str) 1)) (fsm-aux (cdr str) 'S2)]
-
-    [else 'REJECT]
-  )
-  ))
-  (fsm-aux str 'S0)
-))
+;;; The following code example is commented out because it is not part of the transcription
+;;; -----
+;;; (define fsm (lambda (str)
+;;;  (define fsm-aux (lambda (str st)
+;;;    (cond
+;;;      [(and (null? str) (eq? st 'S0)) 'ACCEPT]
+;;;      [(null? str) 'REJECT]
+;;;      ;;; Row S0
+;;;      [(and (eq? st 'S0) (zero? (car str))) (fsm-aux (cdr str) 'S0)]
+;;;      [(and (eq? st 'S0) (eq? (car str) 1)) (fsm-aux (cdr str) 'S1)]
+;;;      ;;; Row S1
+;;;      [(and (eq? st 'S1) (eq? (car str) 0)) (fsm-aux (cdr str) 'S2)]
+;;;      [(and (eq? st 'S1) (eq? (car str) 1)) (fsm-aux (cdr str) 'S0)]
+;;;      ;;; Row S2
+;;;      [(and (eq? st 'S2) (eq? (car str) 0)) (fsm-aux (cdr str) 'S1)]
+;;;      [(and (eq? st 'S2) (eq? (car str) 1)) (fsm-aux (cdr str) 'S2)]
+;;;
+;;;    [else 'REJECT]
+;;;  )
+;;;  ))
+;;;  (fsm-aux str 'S0)
+;;;))
 
 ;;; Note: This version, not covered in the talk, implements an outer, driver and
 ;;; the delta function. The recursion occurs in the fsm-drv function.
@@ -235,15 +237,17 @@
 
 
 ;;; fsm-cond.scm - Conditional version of DFA
-
-
-(define  fsm (lambda (lst)
-  (let* ((Q0 'S0) (Q Q0))
-  (fsm-drv lst Q)
-  )
-))
-
-
+;;;
+;;;
+;;;(define  fsm (lambda (lst)
+;;;  (let* ((Q0 'S0) (Q Q0))
+;;;  (fsm-drv lst Q)
+;;;  )
+;;;))
+;;;
+;;;
+;;; -----
+;;; Transcription resumes
 ;;; Time: 01:08:00
 ;;;  Pmatch version: Use pattern matcher to perform check for valid  bit strings
 (load "pmatch.scm")
